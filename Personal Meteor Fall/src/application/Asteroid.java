@@ -34,11 +34,11 @@ public class Asteroid extends GameObject {
     int depth = 200;
     float lightPos = 150;
 	double particleSize = 15;
-	double particleLife = 2; 
+	double particleLife = 2;
 	double accelaration = 0.01;
 	float intensity = 0;
 	double size = 168;
-	
+
     public Asteroid(Game game, Pane layer, Image image, double size, float x, float y, float r, float velX, float velY, GameObjectID id) {
         super(game, image, layer, x, y, r, velX, velY, id);
         this.game = game;
@@ -51,8 +51,8 @@ public class Asteroid extends GameObject {
         this.imageView.setFitWidth(size);
         this.imageView.setFitHeight(size);
         this.imageView.setPreserveRatio(true);
-        this.light.setX(0);   	  	
-        this.light.setY(700); 
+        this.light.setX(0);
+        this.light.setY(700);
         this.light.setZ(150);
 		this.lighting.setSurfaceScale(5.0);
 		this.lighting.setLight(light);
@@ -78,9 +78,9 @@ public class Asteroid extends GameObject {
             return;
 		x+=velX+Settings.GLOBAL_ACCELARATION*(Settings.FRAMECAP);
 		y+=velY*(Settings.FRAMECAP);
-        r = r + velR*(Settings.FRAMECAP); 	
+        r = r + velR*(Settings.FRAMECAP);
     }
-    public void addFakeLighting(){ 
+    public void addFakeLighting(){
     	if(game.getloader().getPlayer().lampOff == false)
     		light.setZ(lightPos);
     	else if(game.getloader().getPlayer().lampOff == true)
@@ -90,7 +90,7 @@ public class Asteroid extends GameObject {
     		lightPos+=intensity;
     	}
     	else if(x>500 && Math.abs(y - game.getloader().getPlayer().getY()) > 200){
-			lightPos-=15*(Settings.FRAMECAP);  
+			lightPos-=15*(Settings.FRAMECAP);
     	}
     	else if(x <= 500 ){
     		lightPos-=15*(Settings.FRAMECAP);;
@@ -104,9 +104,9 @@ public class Asteroid extends GameObject {
 		if(lightPos<=120){
 			lightPos = 120;
 		}
-	
+
     }
-    public void addLighting(){ 
+    public void addLighting(){
     	if(x>500 && x + game.getloader().getPlayer().getX()<1550){
     	if(Math.abs(y - game.getloader().getPlayer().getY()) < 200){
     		intensity+=0.5;
@@ -114,7 +114,7 @@ public class Asteroid extends GameObject {
     		if(lightPos>=400){
     			lightPos = 400;
     		}
-    		
+
     	}
     	}
     	if(x < 500 ){
@@ -130,10 +130,10 @@ public class Asteroid extends GameObject {
     	}
     	if(game.getloader().getPlayer().lampOff == false)
     		light.setZ(lightPos);
-    	
+
     	if(game.getloader().getPlayer().lampOff == true)
         	light.setZ(150);
-	
+
     }
     public void updateUI(){
     	super.updateUI();
@@ -155,7 +155,7 @@ public class Asteroid extends GameObject {
 				else
 					this.innerShadow.setColor(Color.TRANSPARENT);
 
-			} 
+			}
 			else if (x < Settings.EXPLOSION_POSITION_X) {
 				if (Math.abs(x - Settings.EXPLOSION_POSITION_X) < 400 + width
 						&& Math.abs(y - Settings.EXPLOSION_POSITION_Y) < 400)
@@ -176,10 +176,10 @@ public class Asteroid extends GameObject {
 					}
 					tempObject.setRemovable(true);
 					this.setRemovable(true);
-					blowUp = true;	
+					blowUp = true;
 					blowUp2 = false;
 				}
-			}	
+			}
 			if (!game.getloader().getPlayer().isDead) {
 				if (tempObject.getId() == GameObjectID.player) {
 					if (getBoundsTop().intersects(tempObject.getBounds())) {
@@ -193,13 +193,13 @@ public class Asteroid extends GameObject {
 				}
 			}
 //			if(tempObject.getId() == GameObjectID.asteroid){
-//				if(getBoundsTop().intersects(tempObject.getBounds())){	
+//				if(getBoundsTop().intersects(tempObject.getBounds())){
 //					velY+=0.01f;
 //				}
-//				if(getBounds().intersects(tempObject.getBoundsTop())){	
+//				if(getBounds().intersects(tempObject.getBoundsTop())){
 //					velY-=0.01f;
 //				}
-//				if(getBoundsRight().intersects(tempObject.getBoundsLeft())){	
+//				if(getBoundsRight().intersects(tempObject.getBoundsLeft())){
 //					velX-=0.05f;
 //				}
 //			}
@@ -207,13 +207,13 @@ public class Asteroid extends GameObject {
 		for(int i = 0; i<tileManager.box.size(); i++){
 			Tile tempTile = tileManager.box.get(i);
 			if(tempTile.getId() == LevelObjectID.CollideBox){
-				if(getBounds().intersects(tempTile.getBoundsTop())){	
+				if(getBounds().intersects(tempTile.getBoundsTop())){
 					this.remove();
 				}
-				if(getBounds().intersects(tempTile.getBoundsRight())){	
+				if(getBounds().intersects(tempTile.getBoundsRight())){
 					this.remove();
 				}
-				if(getBounds().intersects(tempTile.getBoundsLeft())){	
+				if(getBounds().intersects(tempTile.getBoundsLeft())){
 					this.remove();
 				}
 			}
@@ -260,7 +260,7 @@ public class Asteroid extends GameObject {
 	}
 	public void createDebris2() {
 		for (int i = 0; i < 130; i++) {
-				
+
 		}
 		blowUp2 = false;
 	}
