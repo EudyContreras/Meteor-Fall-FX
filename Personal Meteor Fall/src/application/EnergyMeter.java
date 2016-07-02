@@ -48,7 +48,7 @@ public class EnergyMeter {
 
 		if (width >= 15) {
 			player.setShootingBlock(false);
-		} 
+		}
 		else if (width <= 0) {
 			player.setShootingBlock(true);
 			setDelay = true;
