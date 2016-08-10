@@ -1,7 +1,7 @@
 package application;
 
 public class Settings {
-    public static float FRAMECAP = 1.0f;
+    public static float FRAMECAP = 1.5f;
     public static double START_X = 1920;
     public static double START_Y = 200;//800
     public static double WIDTH = 1920;
