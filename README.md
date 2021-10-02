@@ -24,6 +24,13 @@ This game was one of my first projects. I was testing making 2D game engine for 
 
 You will find a collection of game settings inside the `Settings` class
 
+## Requirements
+
+Java 8 which includes JavaFX
+
+## Showcase videos
+* [Gameplay Demo](https://youtu.be/GdUSoCoz2_o?t=128)
+
 ## Disclaimer
 
 * I barely knew anything about programming when I made this game and the code looks like pretty bad.
